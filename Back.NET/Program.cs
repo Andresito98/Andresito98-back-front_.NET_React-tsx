@@ -23,6 +23,22 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<JwtService>();
 
 
+builder.Services.AddDbContext<PersonContext>(mysqlBuilder =>
+{
+    mysqlBuilder.UseMySQL(builder.Configuration.GetConnectionString("Connection1"));
+});
+
+builder.Services.AddScoped<IUpdatePerson, UpdatePerson>();
+
+
+builder.Services.AddDbContext<CandidatoContext>(mysqlBuilder =>
+{
+    mysqlBuilder.UseMySQL(builder.Configuration.GetConnectionString("Connection1"));
+});
+
+builder.Services.AddScoped<IUpdateCandidato, UpdateCandidato>();
+
+
 
 var proveedor = builder.Services.BuildServiceProvider();
 var configuration = proveedor.GetService<IConfiguration>();
@@ -33,7 +49,7 @@ builder.Services.AddCors(opciones =>
 
     opciones.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins(frontendURL).AllowAnyMethod().AllowAnyHeader();
+        builder.WithOrigins(frontendURL).AllowAnyMethod().AllowAnyHeader().AllowCredentials();
     });
 });
 
