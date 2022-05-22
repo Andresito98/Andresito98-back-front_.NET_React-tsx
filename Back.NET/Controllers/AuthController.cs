@@ -51,14 +51,15 @@ namespace Back.NET.Controllers
 
             var jwt = _jwtService.Generate(user.Id);
 
-            Response.Cookies.Append("jwt", jwt, new CookieOptions
+            /*Response.Cookies.Append("jwt", jwt, new CookieOptions
             {
                 HttpOnly = true
-            });
+            });*/
 
             return Ok(new
             {
-                message = "success"
+                message = "success",
+                jwt = jwt
             });
         }
 
