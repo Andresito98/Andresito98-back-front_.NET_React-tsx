@@ -14,7 +14,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7200;http://localhost:5200", // el 7200 es para swagger y react url y el 5200 para postman
+      "applicationUrl": "https://localhost:7200;http://localhost:5200;https://net-api.onrender.com", // el 7200 es para swagger y react url y el 5200 para postman
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
